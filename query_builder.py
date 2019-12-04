@@ -20,7 +20,7 @@ def _base_content_query(
         f'{base_api_url}api.php?'
         'action=query'
         '&prop=revisions'
-        f'&titles={resource}{resource_type}'
+        f'&titles={resource}{resource_type.value}'
         '&rvprop=content'
         f'&rvsection={section}'
         '&format=json'
@@ -91,9 +91,9 @@ def pokemon_parse_query(
     return _base_parse_query(pokemon_name, section, ResourceType.POKEMON)
 
 
-def pokemon_list_query(generation: typing.Optional[int]) -> str:
+def pokemon_list_query(generation: typing.Optional[int] = 1) -> str:
     return _base_content_query(
         'List_of_Pokémon_by_National_Pokédex_number',
-        generation + 1,
+        generation,
         ResourceType.MISCELLANEOUS,
     )

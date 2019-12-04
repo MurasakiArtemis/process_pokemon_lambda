@@ -68,7 +68,6 @@ class Pokemon():
             japanese_name: str,
             japanese_transliteration: str,
             japanese_romanized: str,
-            image_relative_link: str,
             has_mega: bool,
             category: str,
             regional_numbers: typing.List[PokemonDex],
@@ -86,7 +85,6 @@ class Pokemon():
         self._japanese_name = japanese_name
         self._japanese_transliteration = japanese_transliteration
         self._japanese_romanized = japanese_romanized
-        self._image_relative_link = image_relative_link
         self._has_mega = has_mega
         self._category = category
         self._regional_numbers = regional_numbers
@@ -146,14 +144,16 @@ class Form():
             self,
             name: str,
             image_relative_link: str,
+            sprite_relative_link: str,
             abilities: typing.List[AbilitySlot],
-            types: typing.List[AbilitySlot],
+            types: typing.List[TypeSlot],
             weight: decimal.Decimal,
             height: decimal.Decimal,
             pokemon: Pokemon,
     ):
         self._name = name
         self._image_relative_link = image_relative_link
+        self._sprite_relative_link = sprite_relative_link
         self._abilities = abilities
         self._types = types
         self._weight = weight

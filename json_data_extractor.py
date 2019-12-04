@@ -23,7 +23,9 @@ class PokemonSection(enum.Enum):
 
 
 def extract_content(data: dict) -> str:
-    result = data['query']['pages'][0][0]['revisions'][-1][-1][-1]
+    pages = data['query']['pages']
+    page = next(iter(pages.values()))
+    result = page['revisions'][0]['*']
     return result
 
 
